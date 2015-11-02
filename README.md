@@ -33,7 +33,7 @@ type (currently supported: integer, long, date, string, text, array, object, enu
 probability - number from 0 to 100, indicating the probability that the defined field will be present in the generated document (100 means that the field will be present in all the documents, 50 means that about 50% of the documents will contain given field)
 size (for arrays)
 Example of input file:
-
+```
 {
 	"data" : {
 		"id" : {
@@ -71,3 +71,4 @@ Example of input file:
 		}
 	}
 }
+```
