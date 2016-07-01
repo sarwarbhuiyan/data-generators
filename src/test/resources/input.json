@@ -1,0 +1,45 @@
+{	
+	"data" : {
+		"id" : {
+			"type" : "identifier"
+		},
+		"tags" : {
+			"type" : "array",
+			"subtype" : {
+				"type": "integer"
+			},
+			"size" : 10
+		},
+		"position" : {
+			"type" : "object",
+			"fields" : {
+				"lon" : {
+					"type" : "long"
+				},
+				"lat" : {
+					"type" : "long"
+				}
+			},
+			"probability" : 50
+		},
+		"created" : {
+			"type" : "date"
+		},
+		"name" : {
+			"type" : "string",
+			"probability" : 30
+		},
+		"content" : {
+			"type" : "text"
+		},
+		"number" : {
+			"type" : "enum",
+			"available" : [1, 3, 5, 7]
+		},
+		"status" : {
+			"type" : "enum",
+			"available" : ["WAITING", "OPEN", "RUN", "CLOSED"]
+		}
+	}
+}
+	

@@ -6,18 +6,19 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 
-import pl.solr.dm.producers.JsonDataModelProducer;
-
 import com.sematext.ag.PlayerConfig;
 import com.sematext.ag.event.ComplexEvent;
 import com.sematext.ag.exception.InitializationFailedException;
 import com.sematext.ag.sink.Sink;
+
+import pl.solr.dm.producers.JsonDataModelProducer;
 
 public class ComplexJSONDataFileSink extends Sink<ComplexEvent> {
 
 	public static final String ES_BASE_URL_KEY = "complexJSONDataEsSink.esBaseUrl";
 	public static final String ES_INDEX_NAME_KEY = "complexJSONDataEsSink.indexName";
 	public static final String ES_TYPE_NAME_KEY = "complexJSONDataEsSink.typeName";
+	
 	private static final Logger LOG = Logger
 			.getLogger(ComplexJSONDataFileSink.class);
 	private String esBaseUrl;
@@ -30,6 +31,8 @@ public class ComplexJSONDataFileSink extends Sink<ComplexEvent> {
 	public void init(PlayerConfig config) throws InitializationFailedException {
 		super.init(config);
 		try {
+			this.indexName = config.get(ES_INDEX_NAME_KEY);
+			this.typeName = config.get(ES_TYPE_NAME_KEY);
 			fileWriter = new FileWriter("output.txt", true);
 			bufferedWriter = new BufferedWriter(fileWriter);
 		} catch (IOException e) {

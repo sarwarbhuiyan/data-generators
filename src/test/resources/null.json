@@ -1,0 +1,12 @@
+{
+	"data" : {
+		"id" : {
+			"type" : "identifier"
+		},
+		
+		"field" : {
+			"type" : "string",
+			"probability" : 0
+		}
+	}
+}
