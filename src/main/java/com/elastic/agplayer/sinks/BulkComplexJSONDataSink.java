@@ -12,6 +12,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.log4j.Logger;
 
 import com.sematext.ag.PlayerConfig;
+import com.sematext.ag.es.sink.BulkJSONDataESSink;
 import com.sematext.ag.es.sink.SimpleJSONDataESSink;
 import com.sematext.ag.event.ComplexEvent;
 import com.sematext.ag.exception.InitializationFailedException;
@@ -43,7 +44,9 @@ public class BulkComplexJSONDataSink extends ComplexJSONDataESSink {
 		
 		indexName = config.get(ES_INDEX_NAME_KEY);
 		typeName = config.get(ES_TYPE_NAME_KEY);
+		bulkSize = Integer.parseInt(config.get(BulkJSONDataESSink.ES_BATCH_SIZE_KEY));
 		File outputDirFile = new File(this.outputDir);
+		
 		outputDirFile.mkdir();
 
 		stringBuilder = new StringBuilder();
@@ -57,6 +60,7 @@ public class BulkComplexJSONDataSink extends ComplexJSONDataESSink {
 			throw new IllegalArgumentException(
 					getClass().getName() + " expects configuration property " + "complexJSONDataEsSink.typeName");
 		}
+		
 	}
 
 	public boolean write(ComplexEvent event) {
@@ -91,11 +95,14 @@ public class BulkComplexJSONDataSink extends ComplexJSONDataESSink {
 
 		StringBuilder builder = new StringBuilder();
 		for (ComplexEvent event : events) {
-			builder.append(getElasticSearchBulkHeader(event, this.indexName, this.typeName));
-			builder.append("\n");
-			String jsonLine = new JsonDataModelProducer().convert(event.getObject());
-			builder.append(jsonLine);
-			builder.append("\n");
+			if(event != null) {
+				builder.append(getElasticSearchBulkHeader(event, this.indexName, this.typeName));
+				builder.append("\n");
+				String jsonLine = new JsonDataModelProducer().convert(event.getObject());
+				builder.append(jsonLine);
+				builder.append("\n");
+			}
+
 		}
 		return builder.toString();
 	}
