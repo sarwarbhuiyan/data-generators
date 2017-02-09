@@ -39,7 +39,7 @@
 		<dependency>
 			<groupId>pl.solr.datamodel</groupId>
 			<artifactId>datamodel</artifactId>
-			<version>0.0.8-SNAPSHOT</version>
+			<version>0.0.9-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

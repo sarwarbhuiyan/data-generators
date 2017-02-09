@@ -3,6 +3,15 @@ This project includes a number of scripts to generate JSON data or index to Elas
 
 # Build
 
+There are some dependencies on the data-models project. Since the original repo is no longer maintained, some changes have been made
+in a fork [here](https://github.com/sarwarbhuiyan/data-models). Download that first and build by doing 
+
+```
+> mvn clean install
+```
+
+Then download or clone this repository and run
+
 ```
 > mvn clean install
 > cd target
