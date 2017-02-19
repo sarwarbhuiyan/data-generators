@@ -15,6 +15,7 @@ import pl.solr.dm.producers.JsonDataModelProducer;
 import pl.solr.dm.producers.SolrDataModelProducer;
 import pl.solr.dm.types.ArrayDataType;
 import pl.solr.dm.types.DateDataType;
+import pl.solr.dm.types.IPV4DataType;
 import pl.solr.dm.types.IdentifierDataType;
 import pl.solr.dm.types.ObjectDataType;
 
@@ -33,6 +34,9 @@ public class DataModelTest {
 		
 		DataType<?> tags = model.getValue().getNewValue().get("tags");
 		assertTypeAndNotNull(tags, ArrayDataType.class);
+		
+		DataType<?> ip = model.getValue().getNewValue().get("ip");
+		assertTypeAndNotNull(ip, IPV4DataType.class);
 		
 		DataType<?> position = model.getValue().getNewValue().get("position");
 		if (position != null) { //probability 50%

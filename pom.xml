@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>com.sematext.ag</groupId>
 			<artifactId>ag-player</artifactId>
-			<version>0.1.7</version>
+			<version>0.1.8</version>
 			<exclusions>
 				<exclusion>
 					<groupId>pl.solr.datamodel</groupId>
@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>com.sematext.ag</groupId>
 			<artifactId>ag-player-es</artifactId>
-			<version>0.1.7</version>
+			<version>0.1.8</version>
 					<exclusions>
 				<exclusion>
 					<groupId>pl.solr.datamodel</groupId>

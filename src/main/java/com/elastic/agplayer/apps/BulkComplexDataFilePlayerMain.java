@@ -1,11 +1,9 @@
 package com.elastic.agplayer.apps;
 
 import com.elastic.agplayer.sinks.BulkComplexJSONDataSink;
-import com.elastic.agplayer.sinks.ComplexJSONDataESSink;
 import com.sematext.ag.PlayerConfig;
 import com.sematext.ag.PlayerRunner;
 import com.sematext.ag.es.sink.BulkJSONDataESSink;
-import com.sematext.ag.es.sink.SimpleJSONDataESSink;
 import com.sematext.ag.es.sink.ThreadedBulkJSONDataESSink;
 import com.sematext.ag.source.FiniteEventSource;
 import com.sematext.ag.source.SimpleSourceFactory;

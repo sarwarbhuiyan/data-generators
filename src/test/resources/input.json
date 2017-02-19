@@ -39,6 +39,9 @@
 		"status" : {
 			"type" : "enum",
 			"available" : ["WAITING", "OPEN", "RUN", "CLOSED"]
+		},
+		"ip": {
+		  "type": "ipv4"
 		}
 	}
 }
